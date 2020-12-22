@@ -10,13 +10,39 @@ let ctx = game.getContext('2d')
 game.setAttribute('height', getComputedStyle(game)['height'])
 game.setAttribute('width', getComputedStyle(game)['width'])
 
+//Ogre
+let ogre = {
+    x: 400,
+    y: 150,
+    color: '#bad155',
+    width: 60,
+    height: 120,
+    alive: true,
+    render: function() {
+        ctx.fillStyle = this.color
+        ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+}
+
+game.addEventListener('click', (e) => {
+    ctx.clearRect(0, 0, game.width, game.height)
+    ogre.x = e.offsetX
+    ogre.y = e.offsetY
+    ogre.render()
+}, { option: true })
+
+
+//Hero
+
 //Draw a filled box
 //determines the fill color
-ctx.fillStyle = 'white'
-ctx.fillRect(10, 10, 100, 100)
+// let drawBox = (x, y, size, color) => {
+//     ctx.fillStyle = color
+//     ctx.fillRect(x, y, size, size)
+// }
 
 //Draw a line box
 //Establishing line aesthetics
-ctx.strokeStyle = 'red'
-ctx.lineWidth = 10;
-ctx.strokeRect(10, 10, 100, 100)
+// ctx.strokeStyle = 'red'
+// ctx.lineWidth = 10;
+// ctx.strokeRect(10, 10, 100, 100)
